@@ -1,0 +1,311 @@
+/* taylon — minimal dark skin */
+:root {
+  --bg: #0a0a0b;
+  --bg-elev: #141417;
+  --bg-hover: #1a1a1e;
+  --fg: #ededef;
+  --fg-dim: #8b8b92;
+  --fg-faint: #55555c;
+  --accent: #7cf9d2;
+  --border: #1f1f23;
+  --border-strong: #2a2a30;
+  --radius: 14px;
+  --font: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Text", system-ui, sans-serif;
+}
+
+html, body {
+  background: var(--bg) !important;
+  color: var(--fg) !important;
+  font-family: var(--font) !important;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.005em;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body, p, a, span, div, li, h1, h2, h3, h4, h5, h6, button, input, .product-list-thumb-name, .header-nav-link {
+  text-transform: lowercase !important;
+}
+
+img, svg, picture, video { text-transform: none !important; }
+
+::selection { background: var(--accent); color: var(--bg); }
+
+/* Kill bigcartel chrome — covers every known e-commerce leftover */
+#bigcartel-announcement-bar,
+.bc-announcement-bar,
+.announcement-bar,
+.product-list-item-background,
+.product-list-thumb-price,
+.branding,
+.header-layout-logo,
+.store-logo,
+.mobile-nav,
+nav.mobile-nav,
+nav.header-nav.mobile-nav,
+.cart-button, .header-cart-button, .cart-link,
+.powered-by, .bigcartel-powered-by,
+.quantity, .product-price, .product-status,
+.buy-button, .add-to-cart-button,
+.cart-num-items,
+a[href$="/taylon3/products"],
+a[href$="/taylon3/contact"],
+a[href$="/taylon3/cart"] { display: none !important; }
+
+/* Header */
+header, .header-layout, .header, .site-header {
+  background: var(--bg) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: none !important;
+  padding: 1.75rem 0 1.25rem !important;
+  position: relative;
+}
+
+header > .wrapper,
+.header-layout .wrapper {
+  padding: 0 2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+header > .wrapper::before {
+  content: "taylon";
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--fg);
+  text-transform: lowercase;
+  order: -1;
+}
+
+.header-nav,
+nav.header-nav:not(.mobile-nav) {
+  border: 1px solid var(--border) !important;
+  border-radius: 999px !important;
+  padding: 0.25rem !important;
+  display: inline-flex !important;
+  gap: 0.25rem;
+  background: var(--bg-elev) !important;
+  box-shadow: none !important;
+  width: auto !important;
+  margin: 0 !important;
+  order: 2;
+}
+
+.header-nav ul {
+  display: inline-flex !important;
+  gap: 0 !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.header-nav li { border: none !important; margin: 0 !important; padding: 0 !important; }
+
+.header-nav a,
+.header-nav-link {
+  color: var(--fg-dim) !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  padding: 0.55rem 1.1rem !important;
+  border-radius: 999px !important;
+  transition: color 0.15s ease, background 0.15s ease !important;
+  border: none !important;
+  text-decoration: none !important;
+  letter-spacing: 0.02em;
+  display: inline-block;
+}
+
+.header-nav a:hover,
+.header-nav-link:hover {
+  color: var(--fg) !important;
+  background: var(--bg-hover) !important;
+}
+
+/* Main content */
+main, .main, .main-layout {
+  background: var(--bg) !important;
+  padding: 3rem 0 4rem !important;
+  min-height: 60vh;
+}
+
+.main .wrapper,
+main .wrapper {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+}
+
+.main .wrapper > h1,
+.main .wrapper > h2 { display: none !important; }
+
+/* Game grid */
+.product-list-container { background: transparent !important; padding: 0 !important; }
+
+.product-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
+  gap: 1.25rem !important;
+  padding: 0 !important;
+  list-style: none !important;
+  margin: 0 !important;
+}
+
+.product-list-thumb,
+.product-list > li,
+div.product-list-thumb.crop-to-square,
+div.product-list-thumb.under_image {
+  background: var(--bg-elev) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden !important;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.product-list-thumb:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong) !important;
+  background: var(--bg-hover) !important;
+}
+
+.product-list-link {
+  display: flex !important;
+  flex-direction: column !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  width: 100% !important;
+}
+
+/* Lock down every image wrapper. Max-height catches any stray native-size image. */
+.product-list-thumb-container {
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  max-height: 400px !important;
+  overflow: hidden !important;
+  background: #000 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.product-list-image-container,
+figure.product-list-image-container {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+}
+
+.image-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  background: transparent !important;
+  overflow: hidden !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+}
+
+.product-list-thumb img,
+.product-list-image,
+img.product-list-image,
+img.lazy {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 0 !important;
+  transition: transform 0.4s ease;
+  position: absolute !important;
+  inset: 0 !important;
+}
+
+.product-list-thumb:hover img { transform: scale(1.03); }
+
+.product-list-thumb-info {
+  background: transparent !important;
+  padding: 0.9rem 1rem !important;
+  text-align: left !important;
+  border: none !important;
+  position: relative !important;
+}
+
+.product-list-thumb-info-headers { background: transparent !important; border: none !important; padding: 0 !important; }
+
+.product-list-thumb-name {
+  color: var(--fg) !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+}
+
+/* Play-game pages */
+iframe {
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  background: #000 !important;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+h1, h2, h3 {
+  color: var(--fg) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Footer */
+footer, .footer-layout, .site-footer {
+  background: var(--bg) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--fg-faint) !important;
+  padding: 2rem !important;
+  font-size: 0.8rem;
+}
+
+footer a, .footer-layout a { color: var(--fg-dim) !important; }
+footer a:hover { color: var(--fg) !important; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--fg-faint); }
+
+/* Responsive */
+@media (max-width: 640px) {
+  header > .wrapper, .header-layout .wrapper, .main .wrapper, main .wrapper { padding: 0 1rem !important; }
+  .product-list { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important; gap: 0.75rem !important; }
+  .header-nav a, .header-nav-link { padding: 0.45rem 0.8rem !important; font-size: 0.78rem !important; }
+  header > .wrapper::before { font-size: 1.2rem; }
+}
